@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p-10">
+        <div class='flex flex-col start-0 mb-10'>
+            <h1 class='font-bold text-3xl '>Create Order</h1>
+        </div>
+
+
+        <!-- hero -->
+        <div class='grid grid-cols-3 space-x-6 '>
+            <div class='col-span-2'>
+                <!-- <FirstColumn /> -->
+                <div class="grid-rows-2 space-y-4">
+
+                    <div class="border rounded-lg shadow-md text-gray-700">
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div class=" font-bold">Products</div>
+                            <div>
+                                <button class="text-blue-600 font-semibold">
+                                    Add custom item
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-row justify-between m-3">
+                            <div class=" w-full mr-5 ">
+                                <input type="text" placeholder="Search Products" id="search"
+                                    class="bg-gray-200 shadow-md font-semibold  rounded-md px-4 py-2 w-full " />
+                            </div>
+                            <div class="  ">
+                                <button class="border shadow-md font-bold  rounded-md px-4 py-2" id="open">
+                                    Browse
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="flex flex-col justify-items-start border rounded-lg shadow-md text-gray-700">
+                        <div>
+                            <div class="flex justify-items-start font-bold m-3">Payment</div>
+                            <div class="flex flex-col font-semibold border rounded-lg  m-3 ">
+                                <ul class="flex flex-row ">
+                                    <li class="basis-1/3 flex p-2 font-bold ">Subtotal:</li>
+                                    <li class="basis-1/3 p-2">--</li>
+                                    <li id="total-price" class="basis-1/3 flex justify-end p-2">₹ 0.00</li>
+                                </ul>
+
+                                <ul class="flex flex-row ">
+                                    <li class="basis-1/3 flex p-2 ">Discount:</li>
+                                    <li class="basis-1/3 p-2">--</li>
+                                    <li class="basis-1/3 flex justify-end p-2">₹ 0.00</li>
+                                </ul>
+
+
+                                <ul class="flex flex-row ">
+                                    <li class="basis-1/3 flex p-2 ">Tax:</li>
+                                    <li class="basis-1/3">--</li>
+                                    <li class="basis-1/3 flex justify-end p-2">₹ 0.00</li>
+                                </ul>
+
+                                <ul class="flex flex-row ">
+                                    <li class="basis-1/3 flex p-2 font-bold">Total:</li>
+                                    <li class="basis-1/3">--</li>
+                                    <li class="basis-1/3 flex justify-end p-2">₹ 0.00</li>
+                                </ul>
+
+
+                            </div>
+                            <div class="flex justify-items-start font-semibold p-3 rounded-lg  bg-neutral-100">
+                                Add a product to calculate total.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- firstcol end -->
+            </div>
+
+
+
+
+            <div>
+                <!-- <SecondColumn/> -->
+                <div class=" grid-rows-5 space-y-4">
+
+                    <div class="border rounded-lg shadow-md text-gray-700">
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div class=" font-bold">Products</div>
+                            <div>
+                                <button class="text-blue-600 font-semibold">Edit</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div>
+                                <button class="text-gray-400 font-semibold">No Notes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" border rounded-lg shadow-md text-gray-700">
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div class=" font-bold">Customer</div>
+                        </div>
+
+                        <div
+                            class="flex flex-col items-center lg:items-stretch lg:flex-row  justify-between m-3 w-auto">
+                            <div>
+                                <button id="create_customer"><input type="text"
+                                        placeholder="Search or create a customer"
+                                        class="bg-gray-200 shadow-md font-semibold  rounded-md px-4 py-2 w-80 " /></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg shadow-md text-gray-700">
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div class=" font-bold">Market</div>
+                            <div>
+                                <button class="text-blue-600 font-semibold">Edit</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div class="">
+                                <p class=" flex text-gray-800 font-semibold">Pricing</p>
+
+                                <p class="text-gray-800 font-semibold">India (INR ₹)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg shadow-md text-gray-700 tag-input">
+                        <div class="flex flex-col lg:flex-row  justify-between m-3">
+                            <div class=" font-bold">Tags</div>
+                            <!-- <div>
+                                <button class="text-blue-600 font-semibold">Edit</button>
+                            </div> -->
+                        </div>
+
+                        <form id="tagForm">
+                            <div class="flex flex-col items-center lg:items-stretch   justify-between m-3   input-wrap">
+                                <div>
+                                    <input type="text" id="tagInput" placeholder="Add a tag" class="bg-gray-200 shadow-md font-semibold  rounded-md px-4 py-2 w-full " />
+                                </div>
+                                <div class="tags"></div>
+                                <div class="duplicate-message" style="display: none; color: red;">The tag you entered already exists! Please enter a new tag!</div>
+                                <div class=" font-semibold mt-1 text-neutral-600 ">
+                                    <p >
+                                        Add up to 5 tags for this order
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+                <!-- secondcol end -->
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <!-- popup start  -->
+    <div class="flex flex-col items-center justify-center modal-container" id="modal_container">
+        <!-- modal -->
+
+        <div class="modal  shadow-md  text-gray-700 ">
+            <div>
+                <div class=" all-products flex justify-between font-bold p-3 bg-neutral-100"><span>All Products</span>
+                    <button class="text-gray-400" id="close">
+                        x</button>
+                </div>
+                <div class="flex flex-col items-center space-x-4 lg:flex-row  lg:justify-between m-3">
+                    <div class=" w-full">
+                        <input type="text" placeholder="Search Products"
+                            class="bg-gray-200 shadow-md font-semibold  rounded-md px-4 py-2 w-full " />
+                    </div>
+                    <div>
+                        <button class="border shadow-md font-bold  rounded-md px-4 py-2  ">
+                            Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- this is the div for the products list -->
+                <div class="inner-data  hide-scrollbar " id="product-data">
+                    <!-- <div class="flex flex-row justify-between space-x-5 p-3 border-b  items-center ">
+                        <div class=" flex flex-row space-x-5 items-center justify-start"><input type="checkbox"
+                                class="product-checkbox" style="height: 16px; width: 16px;">
+                            <img src="https://cdn.shopify.com/s/files/1/0270/3346/9006/files/catlog_cultredCowGhee400ml.jpg?v=1713853818&width=300"
+                                alt="img1" width="45" class="border rounded-lg">
+                            <p class="">A2 Cultured Desi Cow Ghee </p>
+                        </div>
+                        <div>
+                            <span>₹</span><span class="price-amount">1900.00</span> <span>INR</span>
+                        </div>
+                    </div> -->
+                    
+
+                </div>
+
+            </div>
+            <div class="flex border-t font-semibold p-3 rounded-b-lg shadow-lg  justify-between">
+                <div>
+                    <p id="variant-count" class="rounded-lg bg-neutral-200 p-2 text-gray-400">0/500 variants selected
+                    </p>
+                </div>
+                <div>
+                    <button class="border rounded-lg p-2 shadow-sm" id="canclebox">Cancel</button>
+                    <button id="addamount"
+                        class="border hover:bg-neutral-600 bg-neutral-300 rounded-lg p-2 text-white shadow-sm">Add</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- modal end -->
+    </div>
+    <!-- popup end -->
+
+    <!-- customer Form start -->
+    <div class="flex flex-col items-center justify-center modal-container-2" id="modal_container_2">
+
+
+        <div class="modal-2  shadow-md  text-gray-700 ">
+            <div>
+                <div class=" all-products flex justify-between font-bold p-3 bg-neutral-100"><span>Create a new
+                        customer</span> <button class="text-gray-400" id="close2">
+                        x</button></div>
+
+
+                <div class=" hide-scrollbar customer-details overflow-y-auto space-y-3  ">
+                    <div class="flex flex-row items-stretch space-x-2">
+                        <div class="flex flex-col w-1/2">
+                            <label for="firstname" class="font-semibold">First name</label>
+                            <input type="text" id="firstname"
+                                class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                        </div>
+                        <div class="flex flex-col w-1/2 ">
+                            <label for="lastname" class="font-semibold">Last name</label>
+                            <input type="text" id="lastname"
+                                class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                        </div>
+                    </div>
+                    <div class="flex flex-col ">
+                        <label for="language" class="font-semibold">Language</label>
+                        <select id="language" name="language"
+                            class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                            <option value="">Select a language</option>
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ja">Japanese</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ar">Arabic</option>
+
+                        </select>
+
+                        <p class="text-gray-400">This customer will recieve notification in the selected language.</p>
+                    </div>
+
+                    <div class="flex flex-col ">
+                        <label for="email" class="font-semibold">Email</label>
+                        <input type="email" id="email"
+                            class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                    </div>
+
+                    <div class=" space-y-4">
+                        <input type="checkbox" class="mr-2"><span>Customer accepts email marketing</span><br>
+                        <input type="checkbox" class="mr-2"><span>Customer is tax exempt</span>
+                    </div>
+
+                    <hr class="my-10">
+
+                    <!-- address -->
+                    <p class="all-products">Shipping address</p>
+                    <div class="flex flex-col ">
+                        <label for="country">Country/region</label>
+                        <input type="text" id="country"
+                            class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                    </div>
+                    <div class="flex flex-col ">
+                        <label for="company">Company</label>
+                        <input type="text" id="company"
+                            class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                    </div>
+
+                    <div class="flex flex-col ">
+                        <label for="address">Address</label>
+                        <input type="text" id="address"
+                            class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                    </div>
+
+                    <div class="flex flex-col ">
+                        <label for="apartment">Apartment, suite, etc.</label>
+                        <input type="text" id="apartment"
+                            class="input-class-for-customer  font-semibold  rounded-md px-4 py-2 w-full">
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div class=" lastdivofcustomer shadow-lg">
+
+                <div>
+                    <button class="border rounded-lg p-2 shadow-sm" id="cancle2">Cancel</button>
+                    <button class="save_cust  shadow-sm">Save customer</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <!-- customer form end -->
+
+    <script src="script.js">
+
+        // // calculate the no. of selected elements
+        // let totalPrice = 0;
+        // const totalPriceElement = document.getElementById('total-price');
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const checkboxes = document.querySelectorAll('.product-checkbox');
+        //     const variantCountElement = document.getElementById('variant-count');
+        //     const totalItems = checkboxes.length;
+
+
+
+        //     updateSelectedCount();
+
+        //     checkboxes.forEach(checkbox => {
+        //         checkbox.addEventListener('change', updateSelectedCount);
+        //     });
+
+        //     function updateSelectedCount() {
+        //         let selectedCount = 0;
+        //         totalPrice = 0;
+
+
+        //         checkboxes.forEach(checkbox => {
+        //             if (checkbox.checked) {
+        //                 selectedCount++;
+        //                 const priceElement = checkbox.closest('.flex-row').nextElementSibling.querySelector('.price-amount');
+        //                 // console.log(priceElement);
+        //                 const price = parseFloat(priceElement.textContent);
+        //                 totalPrice += price;
+        //                 // console.log(totalPrice);
+        //             }
+        //         });
+
+        //         variantCountElement.innerText = `${selectedCount}/${totalItems} variants selected`;
+
+
+        //     }
+        // });
+
+        // // end of the function
+        // const open = document.getElementById("open");
+        // const search = document.getElementById("search");
+        // const modal_container = document.getElementById('modal_container');
+        // const close = document.getElementById("close");
+        // const canclebox = document.getElementById("canclebox");
+
+
+        // // for add button
+        // const addamount = document.getElementById('addamount');
+        // addamount.addEventListener('click', () => {
+        //     totalPriceElement.innerText = `₹ ${totalPrice.toFixed(2)}`;
+        //     modal_container.classList.remove('show');
+        // })
+
+
+        // open.addEventListener('click', () => {
+        //     modal_container.classList.add('show');
+        // })
+        // search.addEventListener('click', () => {
+        //     modal_container.classList.add('show');
+        // })
+
+        // close.addEventListener('click', () => {
+        //     modal_container.classList.remove('show');
+        // })
+
+        // canclebox.addEventListener('click', () => {
+        //     modal_container.classList.remove('show');
+        // })
+
+        // const create_customer = document.getElementById('create_customer')
+        // const modal_container2 = document.getElementById('modal_container_2');
+        // const close2 = document.getElementById("close2");
+        // const cancle2 = document.getElementById("cancle2");
+
+
+        // create_customer.addEventListener('click', () => {
+        //     modal_container2.classList.add('show')
+        // })
+        // close2.addEventListener('click', () => {
+        //     modal_container2.classList.remove('show');
+        // })
+        // cancle2.addEventListener('click', () => {
+        //     modal_container2.classList.remove('show');
+        // })
+
+
+
+
+    </script>
+</body>
+
+</html>
